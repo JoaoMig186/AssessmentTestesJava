@@ -3,19 +3,19 @@ package org.jsantostp1;
 import java.util.Arrays;
 
 public class MathFunctions {
-    private final MathLogger logger;
+    private static MathLogger logger = null;
 
     public MathFunctions(MathLogger logger) {
         this.logger = logger;
     }
 
-    public int multiplyByTwo(int number) {
+    public static int multiplyByTwo(int number) {
         int result = number * 2;
         logger.log("multiplyByTwo", new int[]{number});
         return result;
     }
 
-    public int[] generateMultiplicationTable(int number, int limit) {
+    public static int[] generateMultiplicationTable(int number, int limit) {
         int[] result = new int[limit];
         for (int i = 0; i < limit; i++) {
             result[i] = number * (i + 1);
@@ -24,7 +24,7 @@ public class MathFunctions {
         return result;
     }
 
-    public boolean isPrime(int number) {
+    public static boolean isPrime(int number) {
         if (number <= 1) {
             logger.log("isPrime", new int[]{number});
             return false;
@@ -39,7 +39,7 @@ public class MathFunctions {
         return true;
     }
 
-    public double calculateAverage(int[] numbers) {
+    public static double calculateAverage(int[] numbers) {
         if (numbers == null || numbers.length == 0) {
             logger.log("calculateAverage", new int[0]);
             throw new IllegalArgumentException("Array cannot be null or empty.");

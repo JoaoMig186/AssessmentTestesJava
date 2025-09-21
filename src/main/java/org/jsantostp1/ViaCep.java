@@ -33,6 +33,10 @@ public class ViaCep {
         return result.toString();
     }
 
+    public static boolean validateCep(String cep) {
+        return cep != null && cep.matches("\\d{8}");
+    }
+
     public static void main(String[] args) {
         String cep = "20271220";
         String resposta = consultaCep(cep);
